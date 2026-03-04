@@ -1,6 +1,7 @@
 import "./style.css";
 import HeroComponent from "./components/hero";
 import HeroFullName from "./components/heroFullName";
+import ExpEvo from "./components/exp";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <h2>Atom dérivé (heroFullNamne)</h2>
       <HeroFullName />
       <h2> Atom dérivé (exp)</h2>
+      <ExpEvo />
     </div>
   );
 }
