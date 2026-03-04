@@ -2,6 +2,7 @@ import "./style.css";
 import HeroComponent from "./components/hero";
 import HeroFullName from "./components/heroFullName";
 import ExpEvo from "./components/exp";
+import Backpack from "./components/inventory";
 
 export default function App() {
   return (
@@ -13,6 +14,8 @@ export default function App() {
       <HeroFullName />
       <h2> Atom dérivé (exp)</h2>
       <ExpEvo />
+      <h2> Atom Objet (inventaire) </h2>
+      <Backpack />
     </div>
   );
 }
