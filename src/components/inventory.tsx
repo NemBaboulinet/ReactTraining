@@ -12,7 +12,7 @@ function Backpack() {
     };
     setBackpackInventory((prev) => [...prev, newPotion]);
   };
-  console.log("vas chier pd", setBackpackInventory);
+  console.log("gne?", setBackpackInventory);
 
   return (
     <>
