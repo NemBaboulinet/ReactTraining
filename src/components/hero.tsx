@@ -10,7 +10,7 @@ function HeroComponent() {
   return (
     <div>
       <p>
-        Notre heros s'appelle <b>{heroName} </b>
+        Notre heros s'appelle <b> {heroName} </b>
         <button onClick={extraName}> ! </button>
       </p>
     </div>

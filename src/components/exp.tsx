@@ -4,7 +4,6 @@ import { expAtom, lvlUpAtom } from "../atoms/expAtom";
 const ExpEvo = () => {
   const levelUpAtomValue = useAtomValue(lvlUpAtom);
   const [exp, setExp] = useAtom(expAtom);
-  console.log(levelUpAtomValue);
 
   return (
     <div>
