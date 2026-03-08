@@ -3,6 +3,17 @@ import { useAtom } from "jotai";
 
 function Backpack() {
   const [backpackInventory, setBackpackInventory] = useAtom(inventoryAtom);
+
+  const useItem = (itemId: number) => {
+    setBackpackInventory((prev) =>
+      prev.map((item) =>
+        item.id === itemId
+          ? { ...item, durability: item.durability - 1 }
+          : item,
+      ),
+    );
+  };
+
   const findPotion = () => {
     const newPotion = {
       id: Date.now(),
@@ -12,7 +23,6 @@ function Backpack() {
     };
     setBackpackInventory((prev) => [...prev, newPotion]);
   };
-  console.log("gne?", setBackpackInventory);
 
   return (
     <>
@@ -22,6 +32,7 @@ function Backpack() {
           {backpackInventory.map((item) => (
             <li key={item.id}>
               {item.item}, ATK: {item.damage}, Durabilité: {item.durability}
+              <button onClick={() => useItem(item.id)}> Use </button>
             </li>
           ))}
         </ul>
