@@ -6,12 +6,24 @@ function Backpack() {
 
   const useItem = (itemId: number) => {
     setBackpackInventory((prev) =>
-      prev.map((item) =>
-        item.id === itemId
-          ? { ...item, durability: item.durability - 1 }
-          : item,
-      ),
+      prev.map((item, index) => {
+        console.log("iterating item", index);
+        return item.id === itemId
+          ? { ...item, durability: Math.max(0, item.durability - 1) }
+          : item;
+      }),
     );
+  };
+
+  const useItemByIndex = (index: number) => {
+    setBackpackInventory((prev) => {
+      // TODO: vérifier que l'index est valide
+      const item = prev[index];
+      item.durability = Math.max(0, item.durability - 1);
+      prev[index] = item;
+
+      return [...prev];
+    });
   };
 
   const findPotion = () => {
@@ -29,10 +41,10 @@ function Backpack() {
       <div>
         <p>Dans ton sac tu as {backpackInventory.length}</p>
         <ul>
-          {backpackInventory.map((item) => (
+          {backpackInventory.map((item, index) => (
             <li key={item.id}>
               {item.item}, ATK: {item.damage}, Durabilité: {item.durability}
-              <button onClick={() => useItem(item.id)}> Use </button>
+              <button onClick={() => useItem(index)}> Use </button>
             </li>
           ))}
         </ul>
