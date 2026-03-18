@@ -11,7 +11,7 @@ RUN chown -R bun:bun /app
 USER bun
 
 # On copie uniquement les fichiers de dépendances d'abord (optimisation du cache) en gardant "bun" comme propriétaire
-COPY chowm bun:bun package.json bun.lock* ./
+COPY --chown=bun:bun package.json bun.lock* ./
 
 # On installe les dépendances à l'intérieur du container
 RUN bun install
